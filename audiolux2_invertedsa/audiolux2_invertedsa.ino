@@ -2,6 +2,9 @@
 // Benjamin Shanahan, 21 January 2016.
 //
 // Uses FFT to analyze frequencies of incoming audio to produce a light show.
+//
+// This file inverts the SA (spectrum analyzer) output so that the light strips can be installed 
+// in the opposite orientation.
 
 
 
