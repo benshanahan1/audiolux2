@@ -187,6 +187,7 @@ void loop() {
     controllers[SA_STRIP]->showLeds(global_brightness);  // update strip
 
     // BASS VISUALIZER
+    controllers[BV_STRIP]->showLeds(global_brightness);  // update strip (doesn't work if below following if/then loop)
     if (current_bass >= BASS_HIT_THRESHOLD) {
       digitalWrite(BASS_PIN, HIGH);
       digitalWrite(BASS_EXTENSION_PIN, HIGH);
@@ -196,7 +197,6 @@ void loop() {
       digitalWrite(BASS_EXTENSION_PIN, LOW);
       bv_fire(0);
     }
-    controllers[BV_STRIP]->showLeds(global_brightness);  // update strip
   }
 
   // peak meter

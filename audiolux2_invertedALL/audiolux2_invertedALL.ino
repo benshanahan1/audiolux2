@@ -97,6 +97,14 @@ void bv_shift_right(CRGB c) {
   }
   bv_leds[0] = c;
 }
+void bv_shift_left(CRGB c) {
+  int k = 0;
+  while (k < BV_NUM_LEDS-1) {
+    bv_leds[k] = bv_leds[k+1];
+    k++;
+  }
+  bv_leds[BV_NUM_LEDS-1] = c;
+}
 // wheel function: input a value from 0-255 and get a color back
 CRGB wheel(byte pos, int brightness) {
   float b = constrain(float(brightness) / 255.0, 0, 1);
@@ -112,7 +120,8 @@ CRGB wheel(byte pos, int brightness) {
 }
 // fire bass visualizer
 void bv_fire(int p) {
-  bv_shift_right(wheel(p, p));
+  // bv_shift_right(wheel(p, p));
+  bv_shift_left(wheel(p, p));
 }
 // draw a line on SA LED strip
 void draw_line(int p) {
